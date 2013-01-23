@@ -1,0 +1,14 @@
+Changes
+lib/Data/Compare/Plugins/JSON.pm
+Makefile.PL
+MANIFEST
+META.json
+META.yml
+README
+t/00-use.t
+t/01-pod.t
+t/02-pod-coverage.t
+t/03-manifest.t
+t/04-require.t
+t/05-compare-json-pp.t
+t/06-compare-json-xs.t
