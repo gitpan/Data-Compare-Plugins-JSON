@@ -6,7 +6,7 @@ use warnings;
 use Data::Compare qw(Compare);
 
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
 
 sub _compare_object_and_object {
