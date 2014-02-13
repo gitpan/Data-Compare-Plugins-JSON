@@ -6,11 +6,11 @@ use warnings;
 use Data::Compare qw(Compare);
 
 
-our $VERSION = '1.01';
+our $VERSION = '1.02';
 
 
 sub _compare_object_and_object {
-	return $_[0] == $_[1] ? 1 : 0;
+	return $_[0] eq $_[1] ? 1 : 0;
 }
 
 sub _compare_object_and_scalar {
@@ -31,14 +31,13 @@ __END__
 
 =head1 NAME
 
-Data::Compare::Plugins::JSON - plugin for L<Data::Compare> to handle
-JSON::PP::Boolean and JSON::XS::Boolean objects.
+Data::Compare::Plugins::JSON - Plugin for Data::Compare to handle JSON::PP and JSON::XS boolean constants.
 
 =head1 DESCRIPTION
 
 L<JSON::PP> and L<JSON::XS> provides instances of JSON::PP::Boolean and
 JSON::XS::Boolean classes. It's JSON::PP::true, JSON::PP::false,
-JSON::XS::true, and JSON::XS::false. This plugin enables Data::Compare to
+JSON::XS::true, and JSON::XS::false. This plugin enables L<Data::Compare> to
 compare this values.
 
 =over 4
@@ -47,7 +46,7 @@ compare this values.
 ordinary scalar
 
 If you compare a scalar and a JSON::PP::Boolean or JSON::XS::Boolean object,
-then they will be compared as scalar and C<0> (for *::false) or C<1>(for
+then they will be compared as scalar and C<0> (for *::false) or C<1> (for
 *::true).
 
 =item comparing two JSON::PP::Boolean or JSON::XS::Boolean objects
@@ -81,7 +80,7 @@ Denis Ibaev, C<dionys@cpan.org> for Setup.ru.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2013, Denis Ibaev.
+Copyright (C) 2013-2014, Denis Ibaev.
 
 This program is free software; you can redistribute it and/or modify it under
 the same terms as Perl itself.

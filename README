@@ -1,7 +1,7 @@
 NAME
 
-Data::Compare::Plugins::JSON - plugin for Data::Compare to handle
-JSON::PP::Boolean and JSON::XS::Boolean objects.
+Data::Compare::Plugins::JSON - plugin for Data::Compare to handle JSON::PP and
+JSON::XS boolean constants.
 
 DESCRIPTION
 
@@ -45,7 +45,7 @@ Denis Ibaev, dionys@cpan.org for Setup.ru.
 
 COPYRIGHT AND LICENSE
 
-Copyright (C) 2013, Denis Ibaev.
+Copyright (C) 2013-2014, Denis Ibaev.
 
 This program is free software; you can redistribute it and/or modify it under
 the same terms as Perl itself.
