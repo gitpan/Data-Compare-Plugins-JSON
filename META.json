@@ -1,5 +1,5 @@
 {
-   "abstract" : "Plugin for Data::Compare to handle JSON::PP and JSON::XS boolean constants.",
+   "abstract" : "Plugin for Data::Compare to handle JSON, JSON::PP and JSON::XS boolean constants.",
    "author" : [
       "Denis Ibaev <dionys@cpan.org>"
    ],
@@ -50,5 +50,5 @@
          "url" : "http://github.com/dionys/data-compare-plugins-json"
       }
    },
-   "version" : "1.02"
+   "version" : "1.03"
 }

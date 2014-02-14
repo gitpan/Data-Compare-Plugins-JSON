@@ -6,7 +6,7 @@ use warnings;
 use Data::Compare qw(Compare);
 
 
-our $VERSION = '1.02';
+our $VERSION = '1.03';
 
 
 sub _compare_object_and_object {
@@ -20,10 +20,12 @@ sub _compare_object_and_scalar {
 
 
 [
-	['JSON::PP::Boolean',     \&_compare_object_and_object],
-	['JSON::PP::Boolean', '', \&_compare_object_and_scalar],
-	['JSON::XS::Boolean',     \&_compare_object_and_object],
-	['JSON::XS::Boolean', '', \&_compare_object_and_scalar],
+	['JSON::PP::Boolean',             \&_compare_object_and_object],
+	['JSON::PP::Boolean',         '', \&_compare_object_and_scalar],
+	['JSON::XS::Boolean',             \&_compare_object_and_object],
+	['JSON::XS::Boolean',         '', \&_compare_object_and_scalar],
+	['JSON::backportPP::Boolean',     \&_compare_object_and_object],
+	['JSON::backportPP::Boolean', '', \&_compare_object_and_scalar],
 ];
 
 
@@ -31,28 +33,30 @@ __END__
 
 =head1 NAME
 
-Data::Compare::Plugins::JSON - Plugin for Data::Compare to handle JSON::PP and JSON::XS boolean constants.
+Data::Compare::Plugins::JSON - Plugin for Data::Compare to handle JSON, JSON::PP and JSON::XS boolean constants.
 
 =head1 DESCRIPTION
 
-L<JSON::PP> and L<JSON::XS> provides instances of JSON::PP::Boolean and
-JSON::XS::Boolean classes. It's JSON::PP::true, JSON::PP::false,
-JSON::XS::true, and JSON::XS::false. This plugin enables L<Data::Compare> to
-compare this values.
+L<JSON>, L<JSON::PP> and L<JSON::XS> provides instances of JSON::PP::Boolean,
+JSON::backportPP::Boolean, and JSON::XS::Boolean classes. It's C<JSON::true>,
+C<JSON::false>, C<JSON::PP::true>, C<JSON::PP::false>, C<JSON::XS::true>, and
+C<JSON::XS::false>. This plugin enables L<Data::Compare> to compare this values.
 
 =over 4
 
-=item comparing a JSON::PP::Boolean or JSON::XS::Boolean object and an
-ordinary scalar
+=item comparing a JSON::PP::Boolean, JSON::backportPP::Boolean, or
+JSON::XS::Boolean object and an ordinary scalar
 
-If you compare a scalar and a JSON::PP::Boolean or JSON::XS::Boolean object,
-then they will be compared as scalar and C<0> (for *::false) or C<1> (for
-*::true).
+If you compare a scalar and a JSON::PP::Boolean, JSON::backportPP::Boolean, or
+JSON::XS::Boolean object, then they will be compared as scalar and C<0> (for
+C<*::false>) or C<1> (for C<*::true>).
 
-=item comparing two JSON::PP::Boolean or JSON::XS::Boolean objects
+=item comparing two JSON::PP::Boolean, JSON::backportPP::Boolean, or
+JSON::XS::Boolean objects
 
-If you compare two JSON::PP::Boolean or JSON::XS::Boolean objects, then they
-will be considered the same if two values are equal for C<==> operator.
+If you compare two JSON::PP::Boolean, JSON::backportPP::Boolean, or
+JSON::XS::Boolean objects, then they will be considered the same if two values
+are equal for C<eq> operator.
 
 =back
 
@@ -64,11 +68,11 @@ L<Data::Compare>.
 
 =over 4
 
-=item Repository
+=item * Repository
 
 L<http://github.com/dionys/data-compare-plugins-json>
 
-=item Bug tracker
+=item * Bug tracker
 
 L<http://github.com/dionys/data-compare-plugins-json/issues>
 

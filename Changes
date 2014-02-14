@@ -1,6 +1,9 @@
 Revision history for Data::Compare::Plugins::JSON
 
-1.02    2014-02-14
+1.03    2014-02-14
+        - Fixed support of JSON::backportPP::Boolean values.
+
+1.02    2014-02-13
         - Fixed support of JSON module earlier than 2.90.
 
 1.01    2013-01-28

@@ -9,8 +9,10 @@ use Test::More;
 BEGIN {
 	$ENV{PERL_JSON_BACKEND} = 'JSON::XS';
 
-	plan skip_all => 'JSON required for this test'
-		unless eval('use JSON (); 1');
+	plan skip_all => 'JSON::XS required for this test'
+		unless eval('use JSON::XS (); 1');
+	plan skip_all => 'JSON && JSON::XS (with version limitation) required for this test'
+		unless eval('require JSON; 1');
 }
 
 use Data::Compare;

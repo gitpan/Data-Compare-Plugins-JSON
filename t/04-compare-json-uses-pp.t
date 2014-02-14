@@ -9,7 +9,9 @@ use Test::More;
 BEGIN {
 	$ENV{PERL_JSON_BACKEND} = 'JSON::PP';
 
-	plan skip_all => 'JSON required for this test'
+	plan skip_all => 'JSON::PP required for this test'
+		unless eval('use JSON::PP (); 1');
+	plan skip_all => 'JSON & JSON::PP (with version limitation) required for this test'
 		unless eval('use JSON (); 1');
 }
 
